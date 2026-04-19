@@ -1,0 +1,1 @@
+var json_PERDAGANGANDANJASA_7 = {"type":"FeatureCollection","name":"PERDAGANGANDANJASA_7","crs":{"type":"name","properties":{"name":"urn:ogc:def:crs:OGC:1.3:CRS84"}},"features":[{"type":"Feature","properties":{"Id":0.0,"nama":"Pasar Rakyat"},"geometry":{"type":"Point","coordinates":[119.695606015507352,-4.584797709415776]}}]}
