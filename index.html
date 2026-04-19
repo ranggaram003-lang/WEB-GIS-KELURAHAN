@@ -40,7 +40,7 @@
         <script src="data/KELURAHAN_1.js"></script>
         <script src="data/SUNGAI_2.js"></script>
         <script src="data/JALAN_3.js"></script>
-        <script src="data/RUMAHKPL_4.js"></script>
+        <script src="data/RUMAHKEPALALINGKUNGAN_4.js"></script>
         <script src="data/PERKANTORAN_5.js"></script>
         <script src="data/PERIBADATAN_6.js"></script>
         <script src="data/PERDAGANGANDANJASA_7.js"></script>
@@ -64,7 +64,7 @@
         }
         var map = L.map('map', {
             zoomControl:false, maxZoom:27, minZoom:1
-        }).fitBounds([[-4.613924687623955,119.6289295679813],[-4.534040460468719,119.74130643453849]]);
+        }).fitBounds([[-4.597631745491863,119.65072386937419],[-4.557689834674953,119.7069123026528]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -412,7 +412,7 @@
         });
         bounds_group.addLayer(layer_JALAN_3);
         map.addLayer(layer_JALAN_3);
-        function pop_RUMAHKPL_4(feature, layer) {
+        function pop_RUMAHKEPALALINGKUNGAN_4(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -438,7 +438,7 @@
                         <td colspan="2">' + (feature.properties['ket'] !== null ? autolinker.link(String(feature.properties['ket']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['nama'] !== null ? autolinker.link(String(feature.properties['nama']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                        <td class="visible-with-data" id="nama" colspan="2"><strong>nama</strong><br />' + (feature.properties['nama'] !== null ? autolinker.link(String(feature.properties['nama']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -448,10 +448,10 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_RUMAHKPL_4_0() {
+        function style_RUMAHKEPALALINGKUNGAN_4_0() {
             return {
-                pane: 'pane_RUMAHKPL_4',
-                radius: 4.0,
+                pane: 'pane_RUMAHKEPALALINGKUNGAN_4',
+                radius: 10.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -464,26 +464,26 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_RUMAHKPL_4');
-        map.getPane('pane_RUMAHKPL_4').style.zIndex = 404;
-        map.getPane('pane_RUMAHKPL_4').style['mix-blend-mode'] = 'normal';
-        var layer_RUMAHKPL_4 = new L.geoJson(json_RUMAHKPL_4, {
+        map.createPane('pane_RUMAHKEPALALINGKUNGAN_4');
+        map.getPane('pane_RUMAHKEPALALINGKUNGAN_4').style.zIndex = 404;
+        map.getPane('pane_RUMAHKEPALALINGKUNGAN_4').style['mix-blend-mode'] = 'normal';
+        var layer_RUMAHKEPALALINGKUNGAN_4 = new L.geoJson(json_RUMAHKEPALALINGKUNGAN_4, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_RUMAHKPL_4',
-            layerName: 'layer_RUMAHKPL_4',
-            pane: 'pane_RUMAHKPL_4',
-            onEachFeature: pop_RUMAHKPL_4,
+            dataVar: 'json_RUMAHKEPALALINGKUNGAN_4',
+            layerName: 'layer_RUMAHKEPALALINGKUNGAN_4',
+            pane: 'pane_RUMAHKEPALALINGKUNGAN_4',
+            onEachFeature: pop_RUMAHKEPALALINGKUNGAN_4,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_RUMAHKPL_4_0(feature));
+                return L.circleMarker(latlng, style_RUMAHKEPALALINGKUNGAN_4_0(feature));
             },
         });
-        bounds_group.addLayer(layer_RUMAHKPL_4);
-        map.addLayer(layer_RUMAHKPL_4);
+        bounds_group.addLayer(layer_RUMAHKEPALALINGKUNGAN_4);
+        map.addLayer(layer_RUMAHKEPALALINGKUNGAN_4);
         function pop_PERKANTORAN_5(feature, layer) {
             layer.on({
                 mouseout: function(e) {
@@ -523,7 +523,7 @@
         function style_PERKANTORAN_5_0() {
             return {
                 pane: 'pane_PERKANTORAN_5',
-                radius: 4.0,
+                radius: 10.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -595,7 +595,7 @@
         function style_PERIBADATAN_6_0() {
             return {
                 pane: 'pane_PERIBADATAN_6',
-                radius: 4.0,
+                radius: 10.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -664,7 +664,7 @@
         function style_PERDAGANGANDANJASA_7_0() {
             return {
                 pane: 'pane_PERDAGANGANDANJASA_7',
-                radius: 4.0,
+                radius: 10.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -673,7 +673,7 @@
                 weight: 1,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(213,180,60,1.0)',
+                fillColor: 'rgba(255,255,255,1.0)',
                 interactive: true,
             }
         }
@@ -733,7 +733,7 @@
         function style_PENDIDIKAN_8_0() {
             return {
                 pane: 'pane_PENDIDIKAN_8',
-                radius: 4.0,
+                radius: 10.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -771,7 +771,7 @@
             {label: '<img src="legend/PERDAGANGANDANJASA_7.png" /> PERDAGANGAN DAN JASA', layer: layer_PERDAGANGANDANJASA_7},
             {label: '<img src="legend/PERIBADATAN_6.png" /> PERIBADATAN', layer: layer_PERIBADATAN_6},
             {label: '<img src="legend/PERKANTORAN_5.png" /> PERKANTORAN', layer: layer_PERKANTORAN_5},
-            {label: '<img src="legend/RUMAHKPL_4.png" /> RUMAH KPL', layer: layer_RUMAHKPL_4},
+            {label: '<img src="legend/RUMAHKEPALALINGKUNGAN_4.png" /> RUMAH KEPALA LINGKUNGAN', layer: layer_RUMAHKEPALALINGKUNGAN_4},
             {label: '<img src="legend/JALAN_3.png" /> JALAN', layer: layer_JALAN_3},
             {label: '<img src="legend/SUNGAI_2.png" /> SUNGAI', layer: layer_SUNGAI_2},
             {label: 'KELURAHAN<br /><table><tr><td style="text-align: center;"><img src="legend/KELURAHAN_1_0.png" /></td><td></td></tr><tr><td style="text-align: center;"><img src="legend/KELURAHAN_1_Doidoi1.png" /></td><td>Doi-doi</td></tr><tr><td style="text-align: center;"><img src="legend/KELURAHAN_1_LingkunganPettung2.png" /></td><td>Lingkungan Pettung</td></tr><tr><td style="text-align: center;"><img src="legend/KELURAHAN_1_PadangLampe3.png" /></td><td>Padang Lampe</td></tr><tr><td style="text-align: center;"><img src="legend/KELURAHAN_1_Pange4.png" /></td><td>Pange</td></tr></table>', layer: layer_KELURAHAN_1},
